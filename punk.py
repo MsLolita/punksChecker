@@ -70,7 +70,7 @@ def logs(log):
 if __name__ == "__main__":
     print("Start!!!")
     while True:
-        punks = get_punks_info(25)
+        punks = get_punks_info(20)
         low_price_check(punks[0]["price"], punks[1]["price"])
             
         loop = asyncio.get_event_loop()
