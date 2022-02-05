@@ -63,7 +63,7 @@ def low_price_check(first_punk, second_punk):
    
 def first_punks_check(punks):
     for i in range(len(punks)):
-        if punks[i]["price"] - punks[0]["price"] <= 1 and punks[i]["rank"] < 1201:
+        if punks[i]["price"] - punks[0]["price"] <= 1 and int(punks[i]["rank"]) < 1201:
             sendMsg(f'{punks[0]["price"]} more than {spread}')
         else: break
 
