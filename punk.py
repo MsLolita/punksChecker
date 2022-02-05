@@ -60,7 +60,15 @@ def low_price_check(first_punk, second_punk):
     spread = second_punk - first_punk
     if spread > 1.5:
         sendMsg(f'{punks[0]["price"]} more than {spread}')
-    
+   
+def first_punks_check(punks):
+    print(punks[0]["rank"])
+    exit()
+    for i in range(len(punks)):
+        if punks[i]["price"] - punks[0]["price"] <= 1 and punks[i]["rank"] < 1201:
+            sendMsg(f'{punks[0]["price"]} more than {spread}')
+        else: break
+
 def logs(log):
     print(log)
     f = open("punks.txt", "a")
@@ -70,13 +78,14 @@ def logs(log):
 if __name__ == "__main__":
     print("Start!!!")
     while True:
-        punks = get_punks_info(20)
+        punks = get_punks_info(15)
         low_price_check(punks[0]["price"], punks[1]["price"])
-            
+        
         loop = asyncio.get_event_loop()
         future = asyncio.ensure_future(fetch_async(punks))
         loop.run_until_complete(future)
-
+        first_punks_check(punks)
+        
         responses = future.result()
         print("Pass loop")
         time.sleep(30)
